@@ -1,0 +1,15 @@
+/* Geist Font */
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900; /* Variable font with weights from 100 to 900 */
+  font-style: normal;
+}
+
+/* Geist Mono Font */
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMono-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900; /* Variable font with weights from 100 to 900 */
+  font-style: normal;
+}
