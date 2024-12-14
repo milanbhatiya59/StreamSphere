@@ -1,6 +1,9 @@
+import { ClerkProvider } from "@clerk/nextjs";
+import { ThemeProvider } from "@/components/theme-provider";
+import { dark } from "@clerk/themes";
+
 import "./globals.css";
 import "../styles/fonts.css";
-import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,9 +14,22 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+    >
       <html lang="en">
-        <body className="flex items-center justify-center">{children}</body>
+        <body>
+          <ThemeProvider
+            attribute="class"
+            forcedTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
   );
