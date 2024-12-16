@@ -37,7 +37,7 @@ export function Search() {
   return (
     <form
       onSubmit={onSubmit}
-      className="relative w-full md:w-[400px] flex items-center bg-neutral-800 p-1 rounded-full transition"
+      className="relative w-full md:w-[400px] flex items-center bg-neutral-800 p-[1px] rounded-full transition"
     >
       <Input
         value={value}

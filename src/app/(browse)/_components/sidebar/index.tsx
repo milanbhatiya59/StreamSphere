@@ -1,3 +1,10 @@
+import { Toggle } from "./toggle";
+import { Wrapper } from "./wrapper";
+
 export function Sidebar() {
-  return <div>Sideware</div>;
+  return (
+    <Wrapper>
+      <Toggle />
+    </Wrapper>
+  );
 }
