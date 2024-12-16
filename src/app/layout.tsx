@@ -23,9 +23,8 @@ export default function RootLayout({
         <body>
           <ThemeProvider
             attribute="class"
-            forcedTheme="dark"
-            enableSystem
-            disableTransitionOnChange
+            defaultTheme="dark"
+            storageKey="streamsphere-theme"
           >
             {children}
           </ThemeProvider>
