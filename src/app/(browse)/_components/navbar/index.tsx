@@ -1,4 +1,4 @@
-import { Logo } from "@/components/Logo/logo";
+import { Logo } from "@/components/logo";
 import { Search } from "@/app/(browse)/_components/navbar/search";
 import { Action } from "@/app/(browse)/_components/navbar/actions";
 

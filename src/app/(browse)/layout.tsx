@@ -1,6 +1,7 @@
 import { Navbar } from "@/app/(browse)/_components/navbar/index";
-import { Sidebar } from "@/app/(browse)/_components/sidebar/index";
+import { Sidebar, SidebarSkeleton } from "@/app/(browse)/_components/sidebar/index";
 import { Container } from "@/app/(browse)/_components/container";
+import { Suspense } from "react";
 
 export default function BrowseLayout({
   children,
@@ -11,7 +12,9 @@ export default function BrowseLayout({
     <>
       <Navbar />
       <div className="flex h-full pt-24">
-        <Sidebar />
+        <Suspense fallback={<SidebarSkeleton />}>
+          <Sidebar />
+        </Suspense>
         <Container>
           {children}
         </Container>
