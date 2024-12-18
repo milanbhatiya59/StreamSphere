@@ -5,6 +5,7 @@ import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSidebar } from "@/store/use-sidebar";
 import { Hint } from "@/components/hint";
+import { Skeleton } from "@/components/ui/skeleton";
 
 
 export function Toggle() {
@@ -46,4 +47,14 @@ export function Toggle() {
       }
     </>
   );
+}
+
+
+export function ToggleSkeleton() {
+  return (
+    <div className="hidden lg:flex w-full items-center justify-between p-3 pl-6 mb-2">
+      <Skeleton className="h-6 w-[100px]" />
+      <Skeleton className="h-6 w-6" />
+    </div >
+  )
 }

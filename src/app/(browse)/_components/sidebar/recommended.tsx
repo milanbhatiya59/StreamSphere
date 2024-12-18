@@ -34,7 +34,7 @@ export function Recommended({
                         key={user.id}
                         username={user.username}
                         imageUrl={user.imageUrl}
-                        isLive={true}
+                        isLive={false}
                     />
                 ))}
             </ul>
