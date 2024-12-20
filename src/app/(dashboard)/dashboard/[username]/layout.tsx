@@ -19,17 +19,7 @@ export default async function CreatorLayout({
 
     const { username } = await params;
 
-    // const self = await getSelfByUsername(username);
-
-    const self = {
-        id: '9c6a6df5-1f92-4b53-a2da-353ad941d073',
-        username: 'milan1',
-        imageUrl: 'https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycUx6Qkl6V1hTUk4yellPamEyTnk3V09rUE8ifQ',
-        externalUserId: 'user_2qLzBNlJagLULefdMrNQzmztCmX',
-        bio: null,
-        createdAt: '2024 - 12 - 17T17: 28: 30.111Z',
-        updatedAt: '2024 - 12 - 18T11: 15:07.241Z'
-    };
+    const self = await getSelfByUsername(username);
 
     if (!self) {
         redirect("/");
