@@ -1,6 +1,6 @@
 import { isFollowingUser } from "@/lib/follow-service";
 import { getUserByUsername } from "@/lib/user-service";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { Actions } from "./_components/actions";
 import { isBlockedByUser, isBlockUser } from "@/lib/block-service";
 
@@ -22,7 +22,6 @@ export default async function UserPage({
     }
 
     const isFollowing = await isFollowingUser(user.id);
-
     const isBlockedbyYou = await isBlockUser(user.id)
     const isBlocked = await isBlockedByUser(user.id)
 
