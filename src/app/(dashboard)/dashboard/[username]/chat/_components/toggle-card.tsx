@@ -32,7 +32,7 @@ export function ToggleCard({
     };
 
     return (
-        <div className="rounded-xl border-muted border-2 p-6">
+        <div className="rounded-xl bg-white/10 p-6">
             <div className="flex items-center justify-between">
                 <p className="font-semibold shrink-0">
                     {label}
