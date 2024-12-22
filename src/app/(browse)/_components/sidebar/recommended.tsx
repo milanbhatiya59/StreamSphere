@@ -8,7 +8,9 @@ import { UserItem, UserItemSkeleton } from "./user-item";
 
 interface RecommendedProps {
     data: (User & {
-        stream: Stream | null;
+        stream: {
+            isLive: boolean,
+        } | null;
     })[];
 }
 
@@ -18,6 +20,7 @@ export function Recommended({
 }: RecommendedProps) {
 
     const { collapsed } = useSidebar((state) => state);
+
 
     const showLabel = !collapsed && data.length > 0;
 
