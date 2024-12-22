@@ -25,7 +25,38 @@ import {
     SelectValue
 } from "@/components/ui/select"
 
+import {
+    IngressInput
+} from "livekit-server-sdk"
+
+import { useState, useTransition, useRef } from "react";
+
+import { createIngress } from "@/actions/ingress"
+import { toast } from "sonner";
+
+
+const RTMP = String(IngressInput.RTMP_INPUT);
+const WHIP = String(IngressInput.WHIP_INPUT);
+
+type IngressType = typeof RTMP | typeof WHIP;
+
 export function ConnectModal() {
+
+    const [ingressType, setIngressType] = useState<IngressType>(RTMP);
+    const [isPending, startTransition] = useTransition();
+    const closeRef = useRef<HTMLButtonElement>(null);
+
+    const onSubmit = () => {
+        startTransition(() => {
+            createIngress(parseInt(ingressType))
+                .then(() => {
+                    toast.success("Ingress Created")
+                    closeRef?.current?.click();
+                })
+                .catch(() => toast.error("Something went wrong"));
+        });
+    };
+
     return (
         <Dialog>
             <DialogTrigger asChild>
@@ -40,13 +71,17 @@ export function ConnectModal() {
                     </DialogTitle>
                     <DialogClose />
                 </DialogHeader>
-                <Select>
+                <Select
+                    value={ingressType}
+                    disabled={isPending}
+                    onValueChange={(value) => setIngressType(value)}
+                >
                     <SelectTrigger className="w-full">
                         <SelectValue placeholder="Ingress Type" />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="RTMP">RTMP</SelectItem>
-                        <SelectItem value="WHIP">WHIP</SelectItem>
+                        <SelectItem value={RTMP}>RTMP</SelectItem>
+                        <SelectItem value={WHIP}>WHIP</SelectItem>
                     </SelectContent>
                 </Select>
                 <Alert>
@@ -57,13 +92,17 @@ export function ConnectModal() {
                     </AlertDescription>
                 </Alert>
                 <div className="flex justify-between">
-                    <DialogClose asChild>
-                        <Button variant={"ghost"}>
+                    <DialogClose
+                        asChild
+                        ref={closeRef}
+                    >
+                        <Button variant="ghost">
                             Cancel
                         </Button>
                     </DialogClose>
                     <Button
-                        onClick={() => { }}
+                        onClick={onSubmit}
+                        disabled={isPending}
                         className="bg-white/10"
                     >
                         Generate
