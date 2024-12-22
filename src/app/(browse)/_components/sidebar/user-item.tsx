@@ -12,9 +12,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 
 interface UserItemProps {
-    username: string,
-    imageUrl: string,
-    isLive: boolean
+    username: string;
+    imageUrl: string;
+    isLive: boolean | undefined;
 }
 
 export function UserItem({

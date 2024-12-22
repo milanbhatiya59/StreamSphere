@@ -16,42 +16,48 @@ export const getRecommended = async () => {
 
     if (userId) {
         users = await db.user.findMany({
-            where: {
-                AND: [
-                    {
-                        NOT: {
-                            id: userId,
-                        }
+          where: {
+            AND: [
+              {
+                NOT: {
+                  id: userId,
+                },
+              },
+              {
+                NOT: {
+                  followedBy: {
+                    some: {
+                      followerId: userId,
                     },
-                    {
-                        NOT: {
-                            followedBy: {
-                                some: {
-                                    followerId: userId,
-                                }
-                            }
-                        }
+                  },
+                },
+              },
+              {
+                NOT: {
+                  blocking: {
+                    some: {
+                      blockedId: userId,
                     },
-                    {
-                        NOT: {
-                            blocking: {
-                                some: {
-                                    blockedId: userId,
-                                }
-                            }
-                        }
-                    }
-                ]
-            },
-            orderBy: {
-                createdAt: "desc",
-            }
-        })
+                  },
+                },
+              },
+            ],
+          },
+          include: {
+            stream: true,
+          },
+          orderBy: {
+            createdAt: "desc",
+          },
+        });
     } else {
         users = await db.user.findMany({
-            orderBy: {
-                createdAt: "desc",
-            }
+          include: {
+            stream: true,
+          },
+          orderBy: {
+            createdAt: "desc",
+          },
         });
     }
 
