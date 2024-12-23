@@ -24,10 +24,10 @@ export function LiveVideo({
     const [volume, setVolume] = useState(0);
 
     const onVolumeChange = (value: number) => {
-        setVolume(++value);
+        setVolume(value);
         if (videoRef?.current) {
             videoRef.current.muted = value === 0;
-            videoRef.current.volume = +value * 0.01;
+            videoRef.current.volume = value * 0.01;
         }
     }
 
@@ -43,7 +43,6 @@ export function LiveVideo({
 
     useEffect(() => {
         onVolumeChange(0);
-
     }, []);
 
     const toggleFullScreen = () => {
