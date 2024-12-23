@@ -27,6 +27,16 @@ p {
   font-weight: 400;
 }
 
+.hidden-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hidden-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
 @layer base {
   :root {
     --background: 0 0% 12%;

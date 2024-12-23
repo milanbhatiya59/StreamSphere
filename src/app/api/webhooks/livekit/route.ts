@@ -24,8 +24,6 @@ export async function POST(req: Request) {
     return new Response("Invalid webhook signature", { status: 400 });
   }
 
-  console.log("\n\nEvent:", event, "\n\n");
-
   try {
     if (event.event === "ingress_started") {
       await db.stream.update({
