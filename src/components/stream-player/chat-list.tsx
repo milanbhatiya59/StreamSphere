@@ -13,11 +13,13 @@ export function ChatList({
 }: ChatListProps) {
 
     if (isHidden || !messages || messages.length === 0) {
-        <div className="flex flex-1 items-center justify-center">
-            <p className="text-sm text-muted-foreground font-semibold">
-                {isHidden ? "Chat is disabled" : "Welcome to the chat"}
-            </p>
-        </div>
+        return (
+            <div className="flex flex-1 items-center justify-center">
+                <p className="text-sm text-muted-foreground font-semibold">
+                    {isHidden ? "Chat is disabled" : "Welcome to the chat"}
+                </p>
+            </div>
+        )
     }
 
     return (
