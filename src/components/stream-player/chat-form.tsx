@@ -79,12 +79,12 @@ export function ChatForm({
                     )}
                 />
             </div>
-            <div className="w-full">
+            <div className="w-full flex justify-end px-2">
                 <Button
                     type="submit"
                     size="sm"
                     disabled={isDisabled}
-                    className="hover:bg-white/10 w-full"
+                    className="hover:bg-white/10"
                 >
                     Send
                 </Button>
@@ -99,7 +99,6 @@ export function ChatFormSkeleton() {
         <div className="flex flex-col items-center gap-y-4 p-3">
             <Skeleton className="h-8 w-full" />
             <div className="flex items-center gap-x-2 ml-auto">
-                <Skeleton className="h-7 w-7" />
                 <Skeleton className="h-7 w-12" />
             </div>
         </div>
