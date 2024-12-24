@@ -10,7 +10,7 @@ export function ChatHeader() {
             <div className="absolute left-2 top-2 hidden lg:block">
                 <ChatToggle />
             </div>
-            <p className="font-semibold text-primary text-center">
+            <p className="font-semibold text-white text-center">
                 Stream Chat
             </p>
             <div className="absolute right-2 top-2 ">

@@ -41,7 +41,7 @@ export function Video({
 
 
     return (
-        <div className="aspect-video border-b-[4px] group relative border-white/10">
+        <div className="aspect-video group relative">
             {content}
         </div>
     )

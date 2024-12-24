@@ -44,7 +44,7 @@ export function StreamPlayer({
     return (
         <>
             {collapsed && (
-                <div className="hidden lg:block fixed right-2 z-50">
+                <div className="hidden lg:block fixed right-2 z-50 mt-2">
                     <ChatToggle />
                 </div>
             )}
@@ -56,14 +56,14 @@ export function StreamPlayer({
                     collapsed && "lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2"
                 )}
             >
-                <div className="space-y-4 col-span-1 lg:col-span-2 xl:col-span-2 2xl:col-span-5 lg:overflow-y-auto hidden-scrollbar pb-10 m-3">
+                <div className="space-y-4 col-span-1 lg:col-span-2 xl:col-span-2 2xl:col-span-4 lg:overflow-y-auto hidden-scrollbar pb-10 m-3 ">
                     <Video
                         hostName={user.username}
                         hostIdentity={user.id}
                     />
                 </div>
                 <div className={cn(
-                    "col-span-1",
+                    "col-span-1 2xl:col-span-2",
                     collapsed && "hidden"
                 )}>
                     <Chat

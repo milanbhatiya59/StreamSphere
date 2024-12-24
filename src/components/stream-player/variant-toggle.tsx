@@ -35,7 +35,7 @@ export function VariantToggle() {
                 onClick={onToggle}
                 variant="ghost"
             >
-                <Icon className="h-6 w-6" />
+                <Icon className="h-6 w-6 text-white" />
             </Button>
         </Hint>
     );
