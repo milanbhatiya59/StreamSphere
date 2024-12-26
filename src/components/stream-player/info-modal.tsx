@@ -170,7 +170,7 @@ export function InfoModal({
                         <Button
                             disabled={isPending}
                             type="submit"
-                            variant="default"
+                            variant="ghost"
                         >
                             Save
                         </Button>
