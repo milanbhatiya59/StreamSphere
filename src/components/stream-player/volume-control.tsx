@@ -30,8 +30,6 @@ export function VolumeControl({
     const label = isMuted ? "Umuted" : "Mute";
 
     const handleChange = (value: number[]) => {
-        console.log(value[0]);
-
         onChange(value[0]);
     }
 

@@ -33,15 +33,11 @@ export function Header({
     const participantCount = participants.length - 1;
 
     const hostAsViewer = `host-${hostIdentity}`;
-
-    console.log(viewerIdentity);
-    console.log(hostAsViewer);
-
     const isHost = viewerIdentity === hostAsViewer;
 
 
     return (
-        <div className="flex flex-row gap-y-4 lg:gap-y-0 items-center justify-between px-4">
+        <div className="flex flex-row gap-y-4 lg:gap-y-0 items-center justify-between px-4 pb-2">
             <div className="flex items-center gap-x-3">
                 <UserAvatar
                     imageUrl={imageUrl}
