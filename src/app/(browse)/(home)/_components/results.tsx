@@ -7,11 +7,11 @@ export async function Results() {
 
     return (
         <div>
-            <h2 className="text-lg font-semibold mb-4">
-                Streams we think you'll like
+            <h2 className="text-lg font-bold mb-4">
+                Streams
             </h2>
             {data.length === 0 && (
-                <div className="text-muted-foreground text-sm">
+                <div className="text-muted-foreground text-sm font-semibold">
                     No streams found.
                 </div>
             )}

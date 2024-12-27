@@ -34,7 +34,7 @@ export function ResultCard({
                         isLive={data.isLive}
                     />
                     <div className="flex flex-col text-sm overflow-hidden">
-                        <p className="truncate font-semibold hover:text-blue-500 ">
+                        <p className="truncate font-semibold hover:text-white/60">
                             {data.name}
                         </p>
                         <p className="truncate text-muted-foreground">
