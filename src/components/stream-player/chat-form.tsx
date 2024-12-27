@@ -75,7 +75,7 @@ export function ChatForm({
                     placeholder="Enter message"
                     className={cn(
                         "border-white/10 py-6",
-                        isFollowersOnly && "rounded-t-none border-t-0"
+                        (isFollowersOnly || isDelayed) && "rounded-t-none border-t-0"
                     )}
                 />
             </div>
