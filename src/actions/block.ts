@@ -29,6 +29,8 @@ export async function onBlock(userId: string) {
     //This means user is not in the room
   }
 
+  revalidatePath(`/${self.username}`);
+  revalidatePath(`/dashboard/${self.username}`);
   revalidatePath(`/dashboard/${self.username}/community`);
 
   return blockedUser;
@@ -36,13 +38,12 @@ export async function onBlock(userId: string) {
 
 export async function onUnblock(userId: string) {
   try {
+    const self = await getSelf();
     const unblockedUser = await unBlockUser(userId);
 
-    revalidatePath("/");
-
-    if (unblockedUser) {
-      revalidatePath(`${unblockedUser.blocked.username}`);
-    }
+    revalidatePath(`/`);
+    revalidatePath(`/${self.username}`);
+    revalidatePath(`/dashboard/${self.username}/community`);
 
     return unblockedUser;
   } catch (error) {

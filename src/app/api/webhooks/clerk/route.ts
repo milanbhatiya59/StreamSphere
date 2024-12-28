@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
 
 import { db } from "@/lib/db";
+import { resetIngresses } from "@/actions/ingress";
 
 export async function POST(req: Request) {
   const CLERK_WEBHOOK_SIGNING_SECRET = process.env.CLERK_WEBHOOK_SIGNING_SECRET;
@@ -66,6 +67,8 @@ export async function POST(req: Request) {
   }
 
   if (eventType === "user.deleted") {
+    await resetIngresses(payload.data.id);
+
     const user = await db.user.findUnique({
       where: {
         externalUserId: payload.data.id,
