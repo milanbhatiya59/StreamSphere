@@ -22,7 +22,7 @@ export function Search() {
     const url = qs.stringifyUrl(
       {
         url: "/search",
-        query: { searchQuery: value },
+        query: { search_query: value },
       },
       { skipEmptyString: true }
     );
