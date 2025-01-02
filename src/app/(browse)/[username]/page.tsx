@@ -2,16 +2,23 @@ import { StreamPlayer } from "@/components/stream-player";
 import { isBlockedByUser } from "@/lib/block-service";
 import { isFollowingUser } from "@/lib/follow-service";
 import { getUserByUsername } from "@/lib/user-service";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
-type Params = Promise<{ username: string }>;
+interface UserPageProps {
+    params: Promise<{
+        username?: string
+    }>
+}
 
 export default async function UserPage({
     params,
-}: {
-    params: Params;
-}) {
+}: UserPageProps) {
+
     const { username } = await params;
+
+    if (!username) {
+        redirect('/');
+    }
 
     const user = await getUserByUsername(username);
 
