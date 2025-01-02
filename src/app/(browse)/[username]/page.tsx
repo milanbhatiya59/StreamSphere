@@ -14,7 +14,7 @@ export default async function UserPage({
     params,
 }: UserPageProps) {
 
-    const { username } = params;
+    const { username } = await params;
 
     const user = await getUserByUsername(username);
 
