@@ -3,9 +3,9 @@ import { Results, ResultsSkeleton } from "./_components/results";
 import { Suspense } from "react";
 
 interface SearchPageProps {
-    searchParams: {
+    searchParams: Promise<{
         search_query?: string;
-    }
+    }>;
 }
 
 export default async function SearchPage({
