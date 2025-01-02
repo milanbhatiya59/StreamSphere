@@ -6,10 +6,10 @@ export const getRecommended = async () => {
     let userId;
 
     try {
-        const self = await getSelf();
-        userId = self.id;
-    } catch (e) {
-        userId = null
+      const self = await getSelf();
+      userId = self.id;
+    } catch {
+      userId = null;
     }
 
     let users = [];

@@ -66,7 +66,7 @@ export function UserAvatar({
     );
 }
 
-interface UserAvatarSkeletonProps extends VariantProps<typeof avatarSizes> { };
+type UserAvatarSkeletonProps = VariantProps<typeof avatarSizes>;
 
 export function UserAvatarSkeleton({
     size,

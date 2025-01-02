@@ -20,6 +20,7 @@ export async function POST(req: Request) {
   try {
     event = receiver.receive(body, authorization);
   } catch (error) {
+    console.log(error);
     return new Response("Invalid webhook signature", { status: 400 });
   }
 
@@ -38,6 +39,7 @@ export async function POST(req: Request) {
       });
     }
   } catch (dbError) {
+    console.log(dbError);
     return new Response("Error updating database", { status: 500 });
   }
 

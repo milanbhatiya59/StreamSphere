@@ -15,7 +15,7 @@ export async function Results({
     return (
         <div>
             <h2 className="text-lg font-semibold mb-4">
-                Results for "{search_query}"
+                Results for &quot;{search_query}&quot;
             </h2>
             {data.length === 0 && (
                 <p className="text-muted-foreground text-sm">

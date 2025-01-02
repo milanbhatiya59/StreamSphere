@@ -32,6 +32,7 @@ export async function onUnfollow(userId: string) {
 
     return unfollowedUser;
   } catch (error) {
+    console.log(error);
     throw new Error("Error unfollowing user");
   }
 }

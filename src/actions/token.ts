@@ -13,6 +13,7 @@ export async function createViewerToken(hostIdentity: string) {
   try {
     self = await getSelf();
   } catch (error) {
+    console.log(error);
     const id = uuid();
     const username = `guest#${Math.floor(Math.random() * 1000)}`;
     self = { id, username };

@@ -2,12 +2,10 @@
 
 import { useAuth } from "@clerk/nextjs";
 import { Button } from "../ui/button";
-import { Heart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { onFollow, onUnfollow } from "@/actions/follow";
 import { useTransition } from "react";
 import { toast } from "sonner";
-import { cn } from "@/lib/utils";
 import { Skeleton } from "../ui/skeleton";
 
 interface ActionsProps {

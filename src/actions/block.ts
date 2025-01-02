@@ -13,27 +13,32 @@ const roomService = new RoomServiceClient(
 );
 
 export async function onBlock(userId: string) {
-  const self = await getSelf();
-  let blockedUser;
-
   try {
-    blockedUser = await blockUser(userId);
-  } catch {
-    //User is Guest
+    const self = await getSelf();
+    let blockedUser;
+
+    try {
+      blockedUser = await blockUser(userId);
+    } catch {
+      //User is Guest
+    }
+
+    try {
+      //room id is self.id as we define in the ingress
+      blockedUser = await roomService.removeParticipant(self.id, userId);
+    } catch {
+      //This means user is not in the room
+    }
+
+    revalidatePath(`/${self.username}`);
+    revalidatePath(`/dashboard/${self.username}`);
+    revalidatePath(`/dashboard/${self.username}/community`);
+
+    return blockedUser;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Error blocking user");
   }
-
-  try {
-    //room id is self.id as we define in the ingress
-    await roomService.removeParticipant(self.id, userId);
-  } catch {
-    //This means user is not in the room
-  }
-
-  revalidatePath(`/${self.username}`);
-  revalidatePath(`/dashboard/${self.username}`);
-  revalidatePath(`/dashboard/${self.username}/community`);
-
-  return blockedUser;
 }
 
 export async function onUnblock(userId: string) {
@@ -47,6 +52,7 @@ export async function onUnblock(userId: string) {
 
     return unblockedUser;
   } catch (error) {
+    console.log(error);
     throw new Error("Error unblocking user");
   }
 }

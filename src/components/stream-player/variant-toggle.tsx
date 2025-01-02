@@ -1,11 +1,10 @@
 "use client";
 
-import { ArrowLeftFromLine, ArrowRightFromLine, MessageSquare, Users } from "lucide-react";
+import { MessageSquare, Users } from "lucide-react";
 
 import { Hint } from "@/components/hint";
 import { Button } from "@/components/ui/button"
 import { ChatVariant, useChatSidebar } from "@/store/use-chat-sidebar";
-import { useChat } from "@livekit/components-react";
 
 export function VariantToggle() {
     const {
@@ -15,7 +14,7 @@ export function VariantToggle() {
 
     const isChat = variant === ChatVariant.CHAT;;
 
-    let Icon = isChat ? Users : MessageSquare;
+    const Icon = isChat ? Users : MessageSquare;
 
     const onToggle = () => {
         const newVariant = isChat ? ChatVariant.COMMUNITY : ChatVariant.CHAT;

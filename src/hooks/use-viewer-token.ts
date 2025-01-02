@@ -29,6 +29,7 @@ export function useViewerToken(hostIdentity: string) {
           setIdentity(identity);
         }
       } catch (error) {
+        console.log(error);
         toast.error("Error getting viewer token");
       }
     };

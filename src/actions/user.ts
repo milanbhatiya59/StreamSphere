@@ -27,6 +27,7 @@ export async function updateUser(value: Partial<User>) {
 
     return user;
   } catch (error) {
+    console.log(error);
     throw new Error("Internal Error");
   }
 }

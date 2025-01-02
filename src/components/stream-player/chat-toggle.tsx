@@ -5,7 +5,6 @@ import { ArrowLeftFromLine, ArrowRightFromLine } from "lucide-react";
 import { Hint } from "@/components/hint";
 import { Button } from "@/components/ui/button"
 import { useChatSidebar } from "@/store/use-chat-sidebar";
-import { useChat } from "@livekit/components-react";
 
 export function ChatToggle() {
     const {
@@ -14,7 +13,7 @@ export function ChatToggle() {
         onCollapse
     } = useChatSidebar((state) => state);
 
-    let Icon = collapsed ? ArrowLeftFromLine : ArrowRightFromLine;
+    const Icon = collapsed ? ArrowLeftFromLine : ArrowRightFromLine;
 
     const onToggle = () => {
         if (collapsed) {

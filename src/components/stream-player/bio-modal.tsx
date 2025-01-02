@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
 import { Pencil } from "lucide-react";
-import { useState, useTransition, useRef, ElementRef } from "react";
+import { useState, useTransition, useRef } from "react";
 import { updateUser } from "@/actions/user";
 import { toast } from "sonner";
 

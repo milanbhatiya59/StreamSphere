@@ -28,6 +28,7 @@ export async function isFollowingUser(userid: string) {
 
     return !!existingFollow;
   } catch (error) {
+    console.log(error);
     return false;
   }
 }
@@ -142,6 +143,7 @@ export async function getFollowedUsers() {
 
     return followedUsers;
   } catch (error) {
+    console.log(error);
     return [];
   }
 }

@@ -30,6 +30,7 @@ export async function isBlockUser(userid: string) {
 
     return !!existingBlock;
   } catch (error) {
+    console.log(error);
     return false;
   }
 }
@@ -63,6 +64,7 @@ export async function isBlockedByUser(userid: string) {
 
     return !!existingBlock;
   } catch (error) {
+    console.log(error);
     return false;
   }
 }
@@ -167,6 +169,7 @@ export async function getBlockedUsers() {
 
     return blockedUsers;
   } catch (error) {
+    console.log(error);
     return [];
   }
 }

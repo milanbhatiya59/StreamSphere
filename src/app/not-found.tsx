@@ -8,7 +8,7 @@ export default function NotFoundPage() {
                 404
             </h1>
             <p className="font-semibold">
-                We couldn't find the page you were looking for.
+                We couldn&apos;t find the page you were looking for.
             </p>
             <Button
                 variant="secondary"

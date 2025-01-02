@@ -1,6 +1,5 @@
 "use client";
 
-import { Pencil } from "lucide-react";
 import { Separator } from "../ui/separator";
 import Image from "next/image";
 import { InfoModal } from "./info-modal";
