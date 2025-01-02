@@ -16,6 +16,7 @@ export async function onFollow(userId: string) {
 
     return followedUser;
   } catch (error) {
+    console.log(error);
     throw new Error("Error following user");
   }
 }

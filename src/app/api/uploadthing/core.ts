@@ -13,7 +13,7 @@ export const ourFileRouter = {
       if (!self) throw new UploadThingError("Unauthorized");
       return { user: self };
     })
-    .onUploadComplete(async ({ metadata, file }) => {
+    .onUploadComplete(async ({ file }) => {
       return { thumbnailUrl: file.url };
     }),
 } satisfies FileRouter;
