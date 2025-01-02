@@ -14,7 +14,9 @@ export default async function UserPage({
     params,
 }: UserPageProps) {
 
-    const user = await getUserByUsername((await params).username);
+    const { username } = params;
+
+    const user = await getUserByUsername(username);
 
     if (!user || !user.stream) {
         notFound();
